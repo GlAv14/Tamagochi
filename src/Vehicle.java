@@ -1,4 +1,4 @@
-public class Vehicle {
+public abstract class Vehicle {
     public static void main(String[] args) {
         Vehicle[] vehicles = new Vehicle[4];
         vehicles[0] = new Car("Toyota", "Camry", 2020, 4);
@@ -10,7 +10,8 @@ public class Vehicle {
             System.out.println(vehicle.toString());
             System.out.println();
         }
-
+        Car car1 = new Car("Lada", "Granta", 2017, 4);
+        car1.displayInfo();
     }
 
     protected String brand;
@@ -34,7 +35,7 @@ public class Vehicle {
         return "Vehicle Info:" + "\n" +
                 "Brand: " + brand + "\n" +
                 "Model: " + model + "\n" +
-                "Year: " + year+"\n";
+                "Year: " + year + "\n";
     }
 }
 
@@ -45,8 +46,9 @@ class Car extends Vehicle {
         super(brand, model, year);
         this.numberOfDoors = numberOfDoors;
     }
-    public String toString(){
-        return super.toString()+ "Number of doors: " + numberOfDoors;
+
+    public String toString() {
+        return super.toString() + "Number of doors: " + numberOfDoors;
     }
 
     @Override
@@ -64,8 +66,9 @@ class Motorcycle extends Vehicle {
         super(brand, model, year);
         this.typeOfHandlebar = typeOfHandlebar;
     }
-    public String toString(){
-        return  super.toString()+ "Type of Handlebar: " + typeOfHandlebar;
+
+    public String toString() {
+        return super.toString() + "Type of Handlebar: " + typeOfHandlebar;
     }
 
     @Override
